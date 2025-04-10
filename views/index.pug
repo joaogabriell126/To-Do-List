@@ -8,11 +8,11 @@ html
         h1.text-7xl.text-white.mb-10 To do List
         form(action="/add", method="post", class="flex justify-between border w-130 h-10 overflow-hidden rounded-full mb-3")  
             input(type="text", name="inputTask", class="bg-gray-900 p-4 w-full text-white", placeholder="Adicione sua tarefa")
-            button(type="submit", class="cursor-pointer w-35 bg-white ") Vamos lá!
-        ul.flex.flex-col.gap-2
+            button(type="submit", class="cursor-pointer w-35 bg-white font-semibold") Vamos lá!
+        ul(class="flex flex-col gap-2 w-85 max-h-50 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#242E33] [&::-webkit-scrollbar-thumb]:bg-[#949FA4] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full")
           each user in users
-             li(class="text-white flex justify-between p-4 items-center gap-4 bg-[#242E33] h-10 w-80 border border-[#949FA4] rounded-full")
-              span= user.task
-              form(action=`/delete/${user.id}`, method="post")
-                button(class="bg-[#949FA4] text-[#152025] px-2 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer") 
+             li(class="text-white flex justify-between items-center bg-[#242E33] min-h-10 w-80 border border-[#949FA4] rounded-full")
+              span.ml-4= user.task
+              form(action=`/delete/${user.id}`, method="post", class="relative")
+                button(class="bg-[#949FA4] text-[#152025] px-2 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer absolute right-0.5 top-1/2 -translate-y-1/2") 
                   span.fa-solid.fa-trash 
